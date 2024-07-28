@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
 import axios from "axios";
 export default function SignUp() {
+  const navigate = useNavigate();
   const [FormData, setFormData] = useState({
     username: "",
     email: "",
@@ -31,9 +32,11 @@ export default function SignUp() {
         password: "",
       });
       console.log(res.data);
+      toast.success("User created successfully!");
       setLoading(false);
       setError(false);
       toast.success("User created successfully!");
+      navigate("/");
     } catch (error) {
       setError(true);
       setLoading(false);
