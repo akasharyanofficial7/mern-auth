@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const connectedDb = require("./config/db.config");
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 const apiRoutes = require("./routes/user.route");
 const PORT = process.env.PORT || 5000;
 
